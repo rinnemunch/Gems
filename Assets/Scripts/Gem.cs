@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
-    //The gems of each level is the target
+    public GameManager gameManager;
 
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Destroy(gameObject, 2f); // Destroy the gem after (whatever you want) seconds
     }
 
@@ -17,6 +18,7 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        gameManager.IncreaseScore();
+        Destroy(gameObject);    
     }
 }

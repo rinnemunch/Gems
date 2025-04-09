@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gem;
 
+    int score = 0; 
 
     
     void Start()
@@ -27,5 +28,11 @@ public class GameManager : MonoBehaviour
         Vector3 randomPosition = new Vector3(randomX, randomY, 0f); 
 
         Instantiate(gem, randomPosition, Quaternion.identity); 
+    }
+
+    public void IncreaseScore()
+    {
+        score++;
+        Debug.Log("Score: " + score); // Display the score in the console
     }
 }
