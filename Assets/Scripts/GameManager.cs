@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject gem;
 
-    int score = 0; 
+    int score = 0;
 
+    public Text scoreText; 
     
     void Start()
     {
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
-        Debug.Log("Score: " + score); // Display the score in the console
+        Debug.Log("Score: " + score); // Display the score in the console 
+
+        scoreText.text = "Score: " + score;
     }
 }
