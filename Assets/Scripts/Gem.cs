@@ -3,24 +3,21 @@ using UnityEngine;
 public class Gem : MonoBehaviour
 {
     public GameManager gameManager;
+    private bool clicked = false;
 
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        Destroy(gameObject, 2f); // Destroy the gem after (whatever you want) seconds
-    }
-
-
-    void Update()
-    {
-        
+        Destroy(gameObject, 2f); // Auto destroy after 2 seconds
     }
 
     private void OnMouseDown()
     {
+        if (clicked) return; 
+        clicked = true;
+
         GetComponent<AudioSource>().Play();
         gameManager.IncreaseScore();
-        Destroy(gameObject, 0.25f); 
+        Destroy(gameObject, 0.3f); // Small delay so sound plays
     }
-
 }
