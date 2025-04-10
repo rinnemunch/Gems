@@ -18,7 +18,9 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
+        GetComponent<AudioSource>().Play();
         gameManager.IncreaseScore();
-        Destroy(gameObject);    
+        Destroy(gameObject, 0.25f); 
     }
+
 }
