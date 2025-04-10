@@ -510,7 +510,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      You Win!_0: -1290721782082952497
+      You Win!_1: -38681770453749623
+      You Win!_10: -5211869832978795330
+      You Win!_11: 1453922919282431191
+      You Win!_12: 6932536757186728173
+      You Win!_13: 1695735998546226468
+      You Win!_14: 3349216827007645277
+      You Win!_2: 4713120079589028777
+      You Win!_3: 4017349148054286053
+      You Win!_4: -4451702378441630126
+      You Win!_5: 1685655472741156657
+      You Win!_6: 7406275339614514214
+      You Win!_7: -2042299426328109012
+      You Win!_8: -4482310801612485632
+      You Win!_9: -5393478006056147387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
