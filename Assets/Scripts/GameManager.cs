@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 
     int score = 0;
 
-    public Text scoreText; 
+    public Text scoreText;
+    bool win = false;
+    public Image winText;
     
     void Start()
     {
@@ -19,7 +21,10 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        
+        if (win == true)
+        {
+            CancelInvoke("Spawn"); // Stop spawning gems
+        }
     } 
 
     void Spawn()
@@ -35,8 +40,15 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
-        Debug.Log("Score: " + score); // Display the score in the console 
+        Debug.Log("Score: " + score);
 
         scoreText.text = "Score: " + score;
+
+        if (score >= 10)
+        {
+            win = true;
+
+            winText.gameObject.SetActive(true); // Show the win text
+        }
     }
 }

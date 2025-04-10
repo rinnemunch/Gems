@@ -715,6 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gem: {fileID: 3955605346425485492, guid: d98343c622e6bf24ca979d152692b88a, type: 3}
   scoreText: {fileID: 1897585242}
+  winText: {fileID: 322020040}
 --- !u!4 &1365767957
 Transform:
   m_ObjectHideFlags: 0
