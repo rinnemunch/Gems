@@ -13,11 +13,11 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (clicked) return; 
+        if (clicked) return;
         clicked = true;
 
         GetComponent<AudioSource>().Play();
         gameManager.IncreaseScore();
-        Destroy(gameObject, 0.3f); // Small delay so sound plays
+        Destroy(gameObject, 0.3f); // Delay so sound plays
     }
 }

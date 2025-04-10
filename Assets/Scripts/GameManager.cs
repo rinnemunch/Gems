@@ -10,31 +10,33 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     bool win = false;
     public Image winText;
-    
+
     void Start()
     {
         Spawn();
 
-        InvokeRepeating("Spawn", 1f, 1f); // Call Spawn every 1 second
+        InvokeRepeating("Spawn", 1f, 0.5f); // spawns every 0.5 seconds
+
     }
 
-    
+
     void Update()
     {
         if (win == true)
         {
             CancelInvoke("Spawn"); // Stop spawning gems
         }
-    } 
+    }
 
     void Spawn()
     {
         float randomX = Random.Range(-8f, 8f);
         float randomY = Random.Range(-2.5f, 4f);
 
-        Vector3 randomPosition = new Vector3(randomX, randomY, 0f); 
+        Vector3 randomPosition = new Vector3(randomX, randomY, 0f);
 
-        Instantiate(gem, randomPosition, Quaternion.identity); 
+        GameObject newGem = Instantiate(gem, randomPosition, Quaternion.identity);
+        newGem.SetActive(true);
     }
 
     public void IncreaseScore()
