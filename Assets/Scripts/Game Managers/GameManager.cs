@@ -3,20 +3,19 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] gemPrefabs; // array of gem types
-
+    public GameObject[] gemPrefabs;
+    public float spawnRate = 1.2f;   // slower for Level 1
+    public int scoreGoal = 10;       // win at 10
 
     int score = 0;
-    int scoreGoal = 20; // Level 2 goal
+    bool win = false;
 
     public Text scoreText;
-    bool win = false;
     public Image winText;
 
     void Start()
     {
-        Spawn();
-        InvokeRepeating("Spawn", 1f, 0.4f); // spawns faster than level 1
+        InvokeRepeating("Spawn", 1f, spawnRate);
     }
 
     void Update()
@@ -38,13 +37,11 @@ public class GameManager : MonoBehaviour
         newGem.SetActive(true);
     }
 
-
     public void IncreaseScore()
     {
         score++;
-        Debug.Log("Score: " + score);
-
         scoreText.text = "Score: " + score;
+        Debug.Log("Score: " + score);
 
         if (score >= scoreGoal)
         {
