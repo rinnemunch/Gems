@@ -862,6 +862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Gem
       objectReference: {fileID: 0}
+    - target: {fileID: 3955605346425485492, guid: d98343c622e6bf24ca979d152692b88a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6212771631685346944, guid: d98343c622e6bf24ca979d152692b88a, type: 3}
       propertyPath: gameManager
       value: 
