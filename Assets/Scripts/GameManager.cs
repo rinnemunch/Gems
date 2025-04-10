@@ -3,9 +3,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gem;
+    public GameObject[] gemPrefabs; // array of gem types
+
 
     int score = 0;
+    int scoreGoal = 20; // Level 2 goal
 
     public Text scoreText;
     bool win = false;
@@ -14,17 +16,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Spawn();
-
-        InvokeRepeating("Spawn", 1f, 0.5f); // spawns every 0.5 seconds
-
+        InvokeRepeating("Spawn", 1f, 0.4f); // spawns faster than level 1
     }
-
 
     void Update()
     {
-        if (win == true)
+        if (win)
         {
-            CancelInvoke("Spawn"); // Stop spawning gems
+            CancelInvoke("Spawn");
         }
     }
 
@@ -32,12 +31,13 @@ public class GameManager : MonoBehaviour
     {
         float randomX = Random.Range(-8f, 8f);
         float randomY = Random.Range(-2.5f, 4f);
-
         Vector3 randomPosition = new Vector3(randomX, randomY, 0f);
 
-        GameObject newGem = Instantiate(gem, randomPosition, Quaternion.identity);
+        int index = Random.Range(0, gemPrefabs.Length);
+        GameObject newGem = Instantiate(gemPrefabs[index], randomPosition, Quaternion.identity);
         newGem.SetActive(true);
     }
+
 
     public void IncreaseScore()
     {
@@ -46,11 +46,10 @@ public class GameManager : MonoBehaviour
 
         scoreText.text = "Score: " + score;
 
-        if (score >= 10)
+        if (score >= scoreGoal)
         {
             win = true;
-
-            winText.gameObject.SetActive(true); // Show the win text
+            winText.gameObject.SetActive(true);
         }
     }
 }
