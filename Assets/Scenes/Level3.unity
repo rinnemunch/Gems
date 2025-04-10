@@ -255,7 +255,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1890907500038285192, guid: 0a660a4fdebd48d4888985df28b5471c, type: 3}
+  m_Sprite: {fileID: 7605422557452617252, guid: 3a773e161b5658041b2bdac646c522fb, type: 3}
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -715,6 +715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gemPrefabs:
   - {fileID: 3955605346425485492, guid: d98343c622e6bf24ca979d152692b88a, type: 3}
+  - {fileID: 2514653255864523025, guid: 24ce999c0a7c0a84186ceccd57152ecd, type: 3}
+  - {fileID: 7777622901749607996, guid: 6069dc055b3e8414c90a0a2a9fcc6b20, type: 3}
   scoreText: {fileID: 1897585242}
   winText: {fileID: 322020040}
 --- !u!4 &1365767957
