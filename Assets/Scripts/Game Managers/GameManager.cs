@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject[] gemPrefabs;
-    public float spawnRate = 1.2f;   // slower for Level 1
-    public int scoreGoal = 10;       // win at 10
+    public float spawnRate = 1.2f;   
+    public int scoreGoal = 10;       
 
     int score = 0;
     bool win = false;
@@ -43,10 +44,27 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
         Debug.Log("Score: " + score);
 
-        if (score >= scoreGoal)
+        if (score >= scoreGoal && !win)
         {
             win = true;
             winText.gameObject.SetActive(true);
+            Invoke(nameof(LoadNextLevel), 2f); 
+        }
+    }
+
+    void LoadNextLevel()
+    {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextIndex = currentIndex + 1;
+
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextIndex);
+        }
+        else
+        {
+            Debug.Log("Game complete! No more levels.");
+           
         }
     }
 }
