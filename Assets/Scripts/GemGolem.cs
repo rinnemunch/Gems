@@ -31,6 +31,8 @@ public class GemGolem : MonoBehaviour
     {
         currentHealth -= amount;
         healthBar.value = currentHealth;
+        Debug.Log("HP: " + currentHealth + " / " + healthBar.value);
+
 
         if (hitSound != null)
             audioSource.PlayOneShot(hitSound);
