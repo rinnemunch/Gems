@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using TMPro; 
 public class GameManager : MonoBehaviour
 {
     public GameObject[] gemPrefabs;
-    public float spawnRate = 1.2f;   
-    public int scoreGoal = 10;       
+    public float spawnRate = 1.2f;
+    public int scoreGoal = 10;
 
     int score = 0;
     bool win = false;
 
-    public Text scoreText;
+    public TextMeshProUGUI scoreText; 
     public Image winText;
 
     void Start()
@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: <space=5>" + score;
         Debug.Log("Score: " + score);
 
         if (score >= scoreGoal && !win)
         {
             win = true;
             winText.gameObject.SetActive(true);
-            Invoke(nameof(LoadNextLevel), 2f); 
+            Invoke(nameof(LoadNextLevel), 2f);
         }
     }
 
@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Game complete! No more levels.");
-           
         }
     }
 }
