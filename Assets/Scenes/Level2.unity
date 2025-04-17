@@ -871,7 +871,7 @@ MonoBehaviour:
   - {fileID: 2514653255864523025, guid: 24ce999c0a7c0a84186ceccd57152ecd, type: 3}
   spawnRate: 0.7
   scoreGoal: 20
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 699627538}
   levelCompleteText: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
