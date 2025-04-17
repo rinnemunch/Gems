@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro; 
+using TMPro;
+
 public class GameManager : MonoBehaviour
 {
     public GameObject[] gemPrefabs;
@@ -11,12 +11,13 @@ public class GameManager : MonoBehaviour
     int score = 0;
     bool win = false;
 
-    public TextMeshProUGUI scoreText; 
-    public Image winText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI levelCompleteText; 
 
     void Start()
     {
         InvokeRepeating("Spawn", 1f, spawnRate);
+        levelCompleteText.gameObject.SetActive(false); 
     }
 
     void Update()
@@ -47,7 +48,8 @@ public class GameManager : MonoBehaviour
         if (score >= scoreGoal && !win)
         {
             win = true;
-            winText.gameObject.SetActive(true);
+            levelCompleteText.gameObject.SetActive(true); 
+            levelCompleteText.text = "Level Complete!"; 
             Invoke(nameof(LoadNextLevel), 2f);
         }
     }
