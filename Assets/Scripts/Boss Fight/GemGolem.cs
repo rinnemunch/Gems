@@ -33,18 +33,22 @@ public class GemGolem : MonoBehaviour
         healthBar.value = currentHealth;
         Debug.Log("HP: " + currentHealth + " / " + healthBar.value);
 
-
-        if (hitSound != null)
+    
+        if (hitSound != null && audioSource != null)
+        {
             audioSource.PlayOneShot(hitSound);
+        }
 
         if (currentHealth <= 0)
+        {
             Defeat();
+        }
     }
 
     void Defeat()
     {
         Debug.Log("Golem defeated!");
         winPopup.SetActive(true);
-        Destroy(gameObject, 0.5f); // optional: add death anim
+        Destroy(gameObject, 0.5f); 
     }
 }
