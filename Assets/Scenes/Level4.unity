@@ -698,13 +698,8 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 549813110}
   hitSound: {fileID: 8300000, guid: 5cbf5d7c9c127b946b9028f8b5979c73, type: 3}
-  roarSounds:
-  - {fileID: 8300000, guid: ce123da18f15ff74fb659067f48bd8d2, type: 3}
-  - {fileID: 8300000, guid: 36a7ec07252c40c4db8578381b102ce4, type: 3}
-  minRoarDelay: 1
-  maxRoarDelay: 2
   winPopup: {fileID: 0}
-  isAlive: 1
+  sr: {fileID: 570768658}
 --- !u!60 &570768661
 PolygonCollider2D:
   m_ObjectHideFlags: 0

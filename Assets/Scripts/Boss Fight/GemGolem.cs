@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class GemGolem : MonoBehaviour
     public GameObject winPopup;
 
     private AudioSource audioSource;
+    public SpriteRenderer sr;
+    private bool canTakeDamage = true;
+
 
     void Start()
     {
@@ -25,6 +29,8 @@ public class GemGolem : MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
         winPopup.SetActive(false);
+        StartCoroutine(Blink());
+
     }
 
     private void OnMouseDown()
@@ -35,6 +41,8 @@ public class GemGolem : MonoBehaviour
 
     void TakeDamage(int amount)
     {
+        if (!canTakeDamage) return;
+
         currentHealth -= amount;
         healthBar.value = currentHealth;
         Debug.Log("HP: " + currentHealth + " / " + healthBar.value);
@@ -44,11 +52,36 @@ public class GemGolem : MonoBehaviour
             audioSource.PlayOneShot(hitSound);
         }
 
+        StartCoroutine(FlashRed());
+
         if (currentHealth <= 0)
         {
             Defeat();
         }
     }
+
+    IEnumerator Blink()
+    {
+        while (true)
+        {
+            sr.enabled = true;
+            canTakeDamage = true;
+            yield return new WaitForSeconds(1f);
+
+            sr.enabled = false;
+            canTakeDamage = false;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    IEnumerator FlashRed()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+    }
+
+
 
     void Defeat()
     {
