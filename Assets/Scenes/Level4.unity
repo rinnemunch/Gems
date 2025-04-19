@@ -920,6 +920,7 @@ MonoBehaviour:
   teleportInterval: 2
   minBounds: {x: -8, y: -3}
   maxBounds: {x: 8, y: 3}
+  sr: {fileID: 570768658}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
