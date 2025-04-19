@@ -604,6 +604,7 @@ GameObject:
   - component: {fileID: 570768658}
   - component: {fileID: 570768660}
   - component: {fileID: 570768661}
+  - component: {fileID: 570768662}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -904,6 +905,21 @@ PolygonCollider2D:
       - {x: -0.275, y: -1.8449999}
       - {x: -0.315, y: -1.675}
   m_UseDelaunayMesh: 0
+--- !u!114 &570768662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570768657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf0c530fc0bb194592bd9ce5aea3a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportInterval: 2
+  minBounds: {x: -8, y: -3}
+  maxBounds: {x: 8, y: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
