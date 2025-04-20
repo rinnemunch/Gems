@@ -8,6 +8,8 @@ public class TeleportingBoss : MonoBehaviour
     public Vector2 maxBounds = new Vector2(8f, 3f);
     public SpriteRenderer sr;
 
+    private bool isTeleporting = true;
+
     void Start()
     {
         InvokeRepeating(nameof(StartTeleport), 0f, teleportInterval);
@@ -15,6 +17,8 @@ public class TeleportingBoss : MonoBehaviour
 
     void StartTeleport()
     {
+        if (!isTeleporting) return;
+
         StartCoroutine(TeleportEffect());
     }
 
@@ -28,5 +32,12 @@ public class TeleportingBoss : MonoBehaviour
         transform.position = new Vector3(x, y, 0f);
 
         sr.color = new Color(1, 1, 1, 1); // Fade in
+    }
+
+    public void DisableTeleporting()
+    {
+        isTeleporting = false;
+        CancelInvoke(nameof(StartTeleport));
+        StopAllCoroutines();
     }
 }
