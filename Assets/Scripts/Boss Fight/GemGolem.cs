@@ -33,6 +33,12 @@ public class GemGolem : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        transform.position += new Vector3(0f, Mathf.Sin(Time.time * 2f) * 0.005f, 0f);
+    }
+
+
     private void OnMouseDown()
     {
         Debug.Log("Golem clicked!");
