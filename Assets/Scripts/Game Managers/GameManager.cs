@@ -12,12 +12,11 @@ public class GameManager : MonoBehaviour
     bool win = false;
 
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI levelCompleteText; 
-
+    public GameObject levelCompleteSprite; 
     void Start()
     {
         InvokeRepeating("Spawn", 1f, spawnRate);
-        levelCompleteText.gameObject.SetActive(false); 
+        levelCompleteSprite.SetActive(false);   
     }
 
     void Update()
@@ -48,8 +47,7 @@ public class GameManager : MonoBehaviour
         if (score >= scoreGoal && !win)
         {
             win = true;
-            levelCompleteText.gameObject.SetActive(true); 
-            levelCompleteText.text = "Level Complete!"; 
+            levelCompleteSprite.SetActive(true);    
             Invoke(nameof(LoadNextLevel), 2f);
         }
     }
