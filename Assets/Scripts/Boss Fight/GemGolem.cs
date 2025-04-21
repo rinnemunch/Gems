@@ -9,7 +9,7 @@ public class GemGolem : MonoBehaviour
 
     public Slider healthBar;
     public AudioClip hitSound;
-    public GameObject winPopup;
+    public GameObject youWinSprite;
     public SpriteRenderer sr;
 
     private AudioSource audioSource;
@@ -28,7 +28,6 @@ public class GemGolem : MonoBehaviour
 
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
-        winPopup.SetActive(false);
 
         StartCoroutine(Blink());
     }
@@ -104,7 +103,8 @@ public class GemGolem : MonoBehaviour
         isAlive = false;
         canTakeDamage = false;
         StopAllCoroutines();
-        winPopup.SetActive(true);
+        if (youWinSprite != null)
+            youWinSprite.SetActive(true);
 
         StartCoroutine(DeathAnimation());
     }
