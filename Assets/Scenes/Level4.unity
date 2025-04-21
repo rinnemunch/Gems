@@ -623,7 +623,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 549813110}
   hitSound: {fileID: 8300000, guid: 5cbf5d7c9c127b946b9028f8b5979c73, type: 3}
-  youWinSprite: {fileID: 0}
+  youWinSprite: {fileID: 1632857237}
   sr: {fileID: 570768658}
 --- !u!60 &570768661
 PolygonCollider2D:
