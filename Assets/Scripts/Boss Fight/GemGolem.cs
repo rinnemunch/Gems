@@ -16,6 +16,7 @@ public class GemGolem : MonoBehaviour
     private bool canTakeDamage = true;
     private bool isAlive = true;
 
+
     void Start()
     {
         Debug.Log("GemGolem Start() called");
@@ -89,6 +90,7 @@ public class GemGolem : MonoBehaviour
         sr.color = Color.white;
     }
 
+    [System.Obsolete]
     void Defeat()
     {
         Debug.Log("Golem defeated!");
@@ -107,6 +109,12 @@ public class GemGolem : MonoBehaviour
             youWinSprite.SetActive(true);
 
         StartCoroutine(DeathAnimation());
+
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (gm != null)
+        {
+            gm.Invoke("LoadNextLevel", 2f);
+        }
     }
 
     IEnumerator DeathAnimation()
