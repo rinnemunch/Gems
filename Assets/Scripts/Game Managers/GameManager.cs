@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
         if (score >= scoreGoal && !win)
         {
             win = true;
-            levelCompleteSprite.SetActive(true);    
+            StartCoroutine(AnimateLevelComplete(levelCompleteSprite));
             Invoke(nameof(LoadNextLevel), 2f);
         }
     }
@@ -66,4 +68,43 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game complete! No more levels.");
         }
     }
+
+    IEnumerator AnimateLevelComplete(GameObject obj)
+    {
+        obj.SetActive(true);
+
+        Image image = obj.GetComponent<Image>();
+        if (image != null)
+        {
+            image.color = new Color(1, 1, 1, 0);
+        }
+
+        obj.transform.localScale = Vector3.zero;
+
+        float duration = 0.5f;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            float t = time / duration;
+
+            obj.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+
+            if (image != null)
+            {
+                image.color = new Color(1, 1, 1, t);
+            }
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        obj.transform.localScale = Vector3.one;
+
+        if (image != null)
+        {
+            image.color = Color.white;
+        }
+    }
+
 }
