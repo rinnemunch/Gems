@@ -1038,6 +1038,7 @@ GameObject:
   - component: {fileID: 838627317}
   - component: {fileID: 838627316}
   - component: {fileID: 838627315}
+  - component: {fileID: 838627318}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1159,6 +1160,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838627313}
   m_CullTransparentMesh: 1
+--- !u!114 &838627318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838627313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87087ef68512ad047a155788501f3b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 6b2ffe0e5d5ba894882415adc6820eea, type: 3}
 --- !u!1 &850360914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1748,7 @@ GameObject:
   - component: {fileID: 1102109232}
   - component: {fileID: 1102109231}
   - component: {fileID: 1102109230}
+  - component: {fileID: 1102109233}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -1854,6 +1869,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102109228}
   m_CullTransparentMesh: 1
+--- !u!114 &1102109233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102109228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87087ef68512ad047a155788501f3b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 6b2ffe0e5d5ba894882415adc6820eea, type: 3}
 --- !u!1 &1157307838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2512,7 @@ GameObject:
   - component: {fileID: 1689222587}
   - component: {fileID: 1689222586}
   - component: {fileID: 1689222585}
+  - component: {fileID: 1689222588}
   m_Layer: 5
   m_Name: HowToPlayButton
   m_TagString: Untagged
@@ -2605,6 +2634,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689222583}
   m_CullTransparentMesh: 1
+--- !u!114 &1689222588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689222583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87087ef68512ad047a155788501f3b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 6b2ffe0e5d5ba894882415adc6820eea, type: 3}
 --- !u!1 &1695806835
 GameObject:
   m_ObjectHideFlags: 0
