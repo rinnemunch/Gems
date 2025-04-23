@@ -13,7 +13,7 @@ public class SceneTransitionManager : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
-    public void LoadScene(string sceneName)
+    public void FadeToScene(string sceneName)
     {
         StartCoroutine(FadeOutAndLoad(sceneName));
     }
@@ -30,11 +30,13 @@ public class SceneTransitionManager : MonoBehaviour
             fadeImage.color = c;
             yield return null;
         }
+
+        fadeImage.color = new Color(c.r, c.g, c.b, 0);
     }
 
     IEnumerator FadeOutAndLoad(string sceneName)
     {
-        float t = 0;
+        float t = 0f;
         Color c = fadeImage.color;
 
         while (t < fadeDuration)

@@ -51,7 +51,23 @@ public class GameManager : MonoBehaviour
         {
             win = true;
             StartCoroutine(AnimateLevelComplete(levelCompleteSprite));
-            Invoke(nameof(LoadNextLevel), 2f);
+            Invoke(nameof(TriggerFadeOut), 2f);
+        }
+    }
+
+    void TriggerFadeOut()
+    {
+        SceneTransitionManager stm = FindObjectOfType<SceneTransitionManager>();
+        if (stm != null)
+        {
+            int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            string nextSceneName = SceneUtility.GetScenePathByBuildIndex(nextIndex);
+            stm.FadeToScene(SceneManager.GetSceneByBuildIndex(nextIndex).name);
+        }
+        else
+        {
+            Debug.LogWarning("SceneTransitionManager not found. Loading next scene instantly.");
+            LoadNextLevel();
         }
     }
 
@@ -92,7 +108,7 @@ public class GameManager : MonoBehaviour
         {
             float t = time / duration;
 
-            obj.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 1.5f, t); // scale it up
+            obj.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 1.5f, t);
 
             if (image != null)
                 image.color = new Color(1, 1, 1, t);

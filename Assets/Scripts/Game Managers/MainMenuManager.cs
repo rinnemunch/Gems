@@ -6,7 +6,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject instructionsPanel;
     public void StartGame()
     {
-        FindObjectOfType<SceneTransitionManager>().LoadScene("Level1");
+        FindObjectOfType<SceneTransitionManager>().FadeToScene("Level1");
     }
     public void QuitGame()
     {
