@@ -14,11 +14,12 @@ public class GameManager : MonoBehaviour
     bool win = false;
 
     public TextMeshProUGUI scoreText;
-    public GameObject levelCompleteSprite; 
+    public GameObject levelCompleteSprite;
+
     void Start()
     {
         InvokeRepeating("Spawn", 1f, spawnRate);
-        levelCompleteSprite.SetActive(false);   
+        levelCompleteSprite.SetActive(false);
     }
 
     void Update()
@@ -74,10 +75,13 @@ public class GameManager : MonoBehaviour
         obj.SetActive(true);
 
         Image image = obj.GetComponent<Image>();
+        SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+
         if (image != null)
-        {
             image.color = new Color(1, 1, 1, 0);
-        }
+
+        if (sr != null)
+            sr.color = new Color(1, 1, 1, 0);
 
         obj.transform.localScale = Vector3.zero;
 
@@ -88,23 +92,24 @@ public class GameManager : MonoBehaviour
         {
             float t = time / duration;
 
-            obj.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+            obj.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 1.5f, t); // scale it up
 
             if (image != null)
-            {
                 image.color = new Color(1, 1, 1, t);
-            }
+
+            if (sr != null)
+                sr.color = new Color(1, 1, 1, t);
 
             time += Time.deltaTime;
             yield return null;
         }
 
-        obj.transform.localScale = Vector3.one;
+        obj.transform.localScale = Vector3.one * 1.5f;
 
         if (image != null)
-        {
             image.color = Color.white;
-        }
-    }
 
+        if (sr != null)
+            sr.color = Color.white;
+    }
 }
