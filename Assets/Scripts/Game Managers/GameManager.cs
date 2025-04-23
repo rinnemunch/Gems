@@ -60,16 +60,26 @@ public class GameManager : MonoBehaviour
         SceneTransitionManager stm = FindObjectOfType<SceneTransitionManager>();
         if (stm != null)
         {
-            int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            string nextSceneName = SceneUtility.GetScenePathByBuildIndex(nextIndex);
-            stm.FadeToScene(SceneManager.GetSceneByBuildIndex(nextIndex).name);
+            int currentIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextIndex = currentIndex + 1;
+
+            if (nextIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                string path = SceneUtility.GetScenePathByBuildIndex(nextIndex);
+                string nextSceneName = System.IO.Path.GetFileNameWithoutExtension(path);
+                stm.FadeToScene(nextSceneName);
+            }
+            else
+            {
+                Debug.LogWarning("Next scene index is out of range!");
+            }
         }
         else
         {
-            Debug.LogWarning("SceneTransitionManager not found. Loading next scene instantly.");
-            LoadNextLevel();
+            Debug.LogWarning("SceneTransitionManager not found.");
         }
     }
+
 
     void LoadNextLevel()
     {
